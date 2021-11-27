@@ -2,29 +2,23 @@
 
 #include <iostream>
 
-void ofApp::setup() { ofSetLineWidth(2); }
+void ofApp::setup() {
+    ofSetWindowTitle("My first oF app");
+    ofSetLineWidth(2);
+    ofNoFill();
+    ofSetHexColor(0x008888);
+}
 
 void ofApp::update() {}
 
 void ofApp::draw() {
-    int halfWidth = ofGetWidth() / 2;
-    int halfHeight = ofGetHeight() / 2;
+    auto elapsedTime = ofGetElapsedTimeMillis();
+    auto mod = static_cast<float>(elapsedTime % 36000);
+    auto angle = ofMap(mod, 0.0f, 36000.0f, 0.0f, TWO_PI);
 
-    ofTranslate(halfWidth, halfHeight);
-    ofFill();
-    ofSetHexColor(0x557EA2);
-
-    int mouseX = ofGetMouseX() - halfWidth;
-    int mouseY = ofGetMouseY() - halfHeight;
-
-    ofDrawLine(0, 0, mouseX, mouseY);
-
-    ofDrawCircle(mouseX, mouseY, 50);
-
+    ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
     ofRotateXDeg(45);
-    ofRotateYDeg(45);
-    ofNoFill();
-    ofSetHexColor(0x008888);
+    ofRotateYRad(angle);
     ofDrawBox(0, 0, 0, 100, 100, 100);
 }
 
