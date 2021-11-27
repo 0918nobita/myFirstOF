@@ -4,7 +4,11 @@
 
 void ofApp::setup() {}
 void ofApp::update() {}
-void ofApp::draw() {}
+
+void ofApp::draw() {
+    ofSetHexColor(0x008888);
+    ofDrawCircle(ofGetMouseX(), ofGetMouseY(), 50);
+}
 
 void ofApp::keyPressed(int key) {
     std::cout << "KEY PRESSED: " << key << std::endl;
