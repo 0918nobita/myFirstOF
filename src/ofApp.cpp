@@ -1,8 +1,7 @@
 #include "ofApp.h"
 
-#include <iostream>
-
 void ofApp::setup() {
+    ofSetLogLevel(OF_LOG_VERBOSE);
     ofSetWindowTitle("My first oF app");
     ofSetLineWidth(2);
     ofNoFill();
@@ -22,13 +21,9 @@ void ofApp::draw() {
     ofDrawBox(0, 0, 0, 100, 100, 100);
 }
 
-void ofApp::keyPressed(int key) {
-    std::cout << "KEY PRESSED: " << key << std::endl;
-}
+void ofApp::keyPressed(int key) { ofLogVerbose() << "KEY PRESSED: " << key; }
 
-void ofApp::keyReleased(int key) {
-    std::cout << "KEY RELEASED: " << key << std::endl;
-}
+void ofApp::keyReleased(int key) { ofLogVerbose() << "KEY RELEASED: " << key; }
 
 void ofApp::mouseMoved(int x, int y) {}
 void ofApp::mouseDragged(int x, int y, int button) {}
