@@ -32,7 +32,10 @@ void ofApp::keyPressed(int key) {
     std::cout << "KEY PRESSED: " << key << std::endl;
 }
 
-void ofApp::keyReleased(int key) {}
+void ofApp::keyReleased(int key) {
+    std::cout << "KEY RELEASED: " << key << std::endl;
+}
+
 void ofApp::mouseMoved(int x, int y) {}
 void ofApp::mouseDragged(int x, int y, int button) {}
 void ofApp::mousePressed(int x, int y, int button) {}
