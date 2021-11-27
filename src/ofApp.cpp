@@ -2,19 +2,30 @@
 
 #include <iostream>
 
-void ofApp::setup() {}
+void ofApp::setup() { ofSetLineWidth(2); }
+
 void ofApp::update() {}
 
 void ofApp::draw() {
-    ofSetHexColor(0x008888);
-    ofSetLineWidth(2);
+    int halfWidth = ofGetWidth() / 2;
+    int halfHeight = ofGetHeight() / 2;
 
-    int mouseX = ofGetMouseX();
-    int mouseY = ofGetMouseY();
+    ofTranslate(halfWidth, halfHeight);
+    ofFill();
+    ofSetHexColor(0x557EA2);
+
+    int mouseX = ofGetMouseX() - halfWidth;
+    int mouseY = ofGetMouseY() - halfHeight;
 
     ofDrawLine(0, 0, mouseX, mouseY);
 
     ofDrawCircle(mouseX, mouseY, 50);
+
+    ofRotateXDeg(45);
+    ofRotateYDeg(45);
+    ofNoFill();
+    ofSetHexColor(0x008888);
+    ofDrawBox(0, 0, 0, 100, 100, 100);
 }
 
 void ofApp::keyPressed(int key) {
