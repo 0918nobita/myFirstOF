@@ -7,7 +7,14 @@ void ofApp::update() {}
 
 void ofApp::draw() {
     ofSetHexColor(0x008888);
-    ofDrawCircle(ofGetMouseX(), ofGetMouseY(), 50);
+    ofSetLineWidth(2);
+
+    int mouseX = ofGetMouseX();
+    int mouseY = ofGetMouseY();
+
+    ofDrawLine(0, 0, mouseX, mouseY);
+
+    ofDrawCircle(mouseX, mouseY, 50);
 }
 
 void ofApp::keyPressed(int key) {
