@@ -1,0 +1,3 @@
+Makefile linguist-documentation
+*.make   linguist-documentation
+*.qbs    linguist-documentation
