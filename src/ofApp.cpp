@@ -1,9 +1,15 @@
 #include "ofApp.h"
 
+#include <iostream>
+
 void ofApp::setup() {}
 void ofApp::update() {}
 void ofApp::draw() {}
-void ofApp::keyPressed(int key) {}
+
+void ofApp::keyPressed(int key) {
+    std::cout << "KEY PRESSED: " << key << std::endl;
+}
+
 void ofApp::keyReleased(int key) {}
 void ofApp::mouseMoved(int x, int y) {}
 void ofApp::mouseDragged(int x, int y, int button) {}
