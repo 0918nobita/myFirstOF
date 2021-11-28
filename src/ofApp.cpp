@@ -27,6 +27,7 @@ void ofApp::draw() {
 
     shader.begin();
     shader.setUniform2f("u_resolution", width, height);
+    shader.setUniform2f("u_mouse", ofGetMouseX(), ofGetMouseY());
     ofDrawBox(0, 0, 0, 100, 100, 100);
     shader.end();
 
