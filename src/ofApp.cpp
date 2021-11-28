@@ -8,25 +8,28 @@ void ofApp::setup() {
     ofNoFill();
 }
 
-void ofApp::update() {}
+void ofApp::update() {
+    const auto dt = ofGetLastFrameTime();
+    const auto elapsedTime = ofGetElapsedTimeMillis() % 18000;
+    const auto rad = ofMap(elapsedTime, 0, 18000, 0, TWO_PI);
+    const auto speed = ofMap(sin(rad), -1, 1, 0.5, 2);
+    angle += speed * dt;
+    if (angle > TWO_PI) angle -= TWO_PI;
+}
 
 void ofApp::draw() {
-    auto elapsedTime = ofGetElapsedTimeMillis();
-    auto mod = static_cast<float>(elapsedTime % 18000);
-    auto angleRad = ofMap(mod, 0, 18000, 0, TWO_PI);
-
-    int halfWidth = ofGetWidth() / 2;
+    const int halfWidth = ofGetWidth() / 2;
     ofTranslate(halfWidth, ofGetHeight() / 2);
     ofRotateXDeg(45);
-    ofRotateYRad(angleRad);
+    ofRotateYRad(angle);
 
     ofSetHexColor(0xAA8888);
     ofDrawBox(0, 0, 0, 100, 100, 100);
 
     ofSetColor(200);
     ofPolyline polyline;
-    auto angleDeg = ofRadToDeg(angleRad);
-    auto r = ofMap(sin(angleRad), -1, 1, 100, 200);
+    const auto angleDeg = ofRadToDeg(angle);
+    const auto r = ofMap(sin(angle), -1, 1, 100, 200);
     polyline.arc(ofPoint(0, 0), r, r, angleDeg, angleDeg + 225, 100);
     polyline.draw();
 }

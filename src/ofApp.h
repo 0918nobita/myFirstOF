@@ -4,6 +4,8 @@
 
 class ofApp : public ofBaseApp {
    public:
+    float angle;
+
     void setup();
     void update();
     void draw();
