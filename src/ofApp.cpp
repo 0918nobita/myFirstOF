@@ -3,21 +3,29 @@
 void ofApp::setup() {
     ofSetLogLevel(OF_LOG_VERBOSE);
     ofSetWindowTitle("My first oF app");
+    ofSetBackgroundAuto(false);
+    ofSetCircleResolution(100);
     ofSetLineWidth(2);
     ofNoFill();
-    ofSetHexColor(0x008888);
 }
 
 void ofApp::update() {}
 
 void ofApp::draw() {
+    int halfWidth = ofGetWidth() / 2;
+    ofTranslate(halfWidth, ofGetHeight() / 2);
+    int r = ofRandom(31, 127);
+    int g = ofRandom(31, 127);
+    int b = ofRandom(31, 127);
+    ofSetColor(r, g, b);
+    ofDrawCircle(0, 0, ofRandom(100, halfWidth));
+
+    ofRotateXDeg(45);
     auto elapsedTime = ofGetElapsedTimeMillis();
     auto mod = static_cast<float>(elapsedTime % 36000);
     auto angle = ofMap(mod, 0.0f, 36000.0f, 0.0f, TWO_PI);
-
-    ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
-    ofRotateXDeg(45);
     ofRotateYRad(angle);
+    ofSetHexColor(0xAA8888);
     ofDrawBox(0, 0, 0, 100, 100, 100);
 }
 
