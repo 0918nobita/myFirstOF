@@ -10,9 +10,7 @@ void ofApp::setup() {
 
 void ofApp::update() {
     const auto dt = ofGetLastFrameTime();
-    const auto elapsedTime = ofGetElapsedTimeMillis() % 18000;
-    const auto rad = ofMap(elapsedTime, 0, 18000, 0, TWO_PI);
-    const auto speed = ofMap(sin(rad), -1, 1, 0.5, 2);
+    const auto speed = spacePressed ? 0.3 : 1.2;
     angle += speed * dt;
     if (angle > TWO_PI) angle -= TWO_PI;
 }
@@ -34,9 +32,13 @@ void ofApp::draw() {
     polyline.draw();
 }
 
-void ofApp::keyPressed(int key) { ofLogVerbose() << "KEY PRESSED: " << key; }
+void ofApp::keyPressed(int key) {
+    if (key == 32) spacePressed = true;
+}
 
-void ofApp::keyReleased(int key) { ofLogVerbose() << "KEY RELEASED: " << key; }
+void ofApp::keyReleased(int key) {
+    if (key == 32) spacePressed = false;
+}
 
 void ofApp::mouseMoved(int x, int y) {}
 void ofApp::mouseDragged(int x, int y, int button) {}

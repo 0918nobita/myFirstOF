@@ -5,6 +5,7 @@
 class ofApp : public ofBaseApp {
    public:
     float angle;
+    bool spacePressed;
 
     void setup();
     void update();
