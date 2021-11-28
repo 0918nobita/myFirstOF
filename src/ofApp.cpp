@@ -4,7 +4,7 @@ void ofApp::setup() {
     ofSetWindowTitle("My first oF app");
     ofSetWindowShape(730, 490);
     ofSetLineWidth(2);
-    ofSetDepthTest(true);
+    ofEnableDepthTest();
     shader.load("", "shader.frag");
 }
 
@@ -33,9 +33,9 @@ void ofApp::draw() {
     ofNoFill();
     ofSetColor(200);
     ofPolyline polyline;
-    const auto angleDeg = ofRadToDeg(angle);
+    const auto deg = ofRadToDeg(angle);
     const auto r = ofMap(sin(angle), -1, 1, 100, 200);
-    polyline.arc(ofPoint(0, 0), r, r, angleDeg, angleDeg + 225, 100);
+    polyline.arc(ofPoint(0, 0), r, r, deg, deg + 225, 100);
     polyline.draw();
 }
 
