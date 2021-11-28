@@ -12,3 +12,5 @@
 *.log
 
 /config.make
+/.vs
+/icon.aps
