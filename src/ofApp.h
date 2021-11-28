@@ -6,6 +6,7 @@ class ofApp : public ofBaseApp {
    public:
     float angle;
     bool spacePressed;
+    ofShader shader;
 
     void setup();
     void update();

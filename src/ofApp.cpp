@@ -1,11 +1,11 @@
 #include "ofApp.h"
 
 void ofApp::setup() {
-    ofSetLogLevel(OF_LOG_VERBOSE);
     ofSetWindowTitle("My first oF app");
     ofSetWindowShape(730, 490);
     ofSetLineWidth(2);
-    ofNoFill();
+    ofSetDepthTest(true);
+    shader.load("", "shader.frag");
 }
 
 void ofApp::update() {
@@ -16,14 +16,21 @@ void ofApp::update() {
 }
 
 void ofApp::draw() {
-    const int halfWidth = ofGetWidth() / 2;
-    ofTranslate(halfWidth, ofGetHeight() / 2);
+    ofFill();
+
+    const int width = ofGetWidth();
+    const int height = ofGetHeight();
+    const int halfWidth = width / 2;
+    ofTranslate(halfWidth, height / 2);
     ofRotateXDeg(45);
     ofRotateYRad(angle);
 
-    ofSetHexColor(0xAA8888);
+    shader.begin();
+    shader.setUniform2f("u_resolution", width, height);
     ofDrawBox(0, 0, 0, 100, 100, 100);
+    shader.end();
 
+    ofNoFill();
     ofSetColor(200);
     ofPolyline polyline;
     const auto angleDeg = ofRadToDeg(angle);
