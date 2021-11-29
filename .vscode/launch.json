@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/myFirstOF",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "console": "externalTerminal",
+            "preLaunchTask": "Build",
+            "windows": {
+                "type": "cppvsdbg",
+                "program": "${workspaceFolder}/bin/myFirstOF_debug.exe"
+            }
+        }
+    ]
+}

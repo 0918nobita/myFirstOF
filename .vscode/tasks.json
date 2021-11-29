@@ -9,19 +9,10 @@
             "group": {
                 "kind": "build",
                 "isDefault": true
+            },
+            "windows": {
+                "command": "msbuild"
             }
-        },
-        {
-            "label": "Run",
-            "type": "shell",
-            "command": "make",
-            "args": [
-                "RunRelease"
-            ],
-            "dependsOn": [
-                "Build"
-            ],
-            "problemMatcher": []
         }
     ]
 }

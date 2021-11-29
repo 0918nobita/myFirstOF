@@ -10,3 +10,6 @@ insert_final_newline = false
 
 [{Makefile,*.make}]
 indent_style = tab
+
+[*.vcxproj]
+indent_size = 2
