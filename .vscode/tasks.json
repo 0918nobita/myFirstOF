@@ -5,13 +5,15 @@
             "label": "Build",
             "type": "shell",
             "command": "make",
+            "args": ["Debug"],
             "problemMatcher": [],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
             "windows": {
-                "command": "msbuild"
+                "command": "msbuild",
+                "args": []
             }
         }
     ]
